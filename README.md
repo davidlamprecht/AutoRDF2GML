@@ -34,9 +34,13 @@ The [example](./example) folder contains a [small RDF Knowledge Graph](./example
 
 In the folder [use-case_semopenalex-semanticweb](./use-case_semopenalex-semanticweb) are the configuration files ([content-based](./use-case_semopenalex-semanticweb/config-cb.ini) and [topology-based](./use-case_semopenalex-semanticweb/config-tb.ini) setting) for the transformation of the RDF Knowledge Graph [SemOpenAlex-SemanticWeb](https://github.com/davidlamprecht/semantic-gnn-recommendation/tree/main/semopenalex-semanticweb). For the transformation we have additionally defined the [custom edge](./use-case_semopenalex-semanticweb/autordf2gml-cb-with-custom-edge.py) author-author. The folder structure of the generated heterogeneous graph dataset is shown [here](./use-case_semopenalex-semanticweb/autordf2gml-output-soa-sw.txt). 
 
+The transformed Graph Machine Learning Dataset SOA-SW is available at zenodo [https://zenodo.org/records/10299429](https://zenodo.org/records/10299429).
+
 ### Use-Case: Transform Linked Papers With Code
 
 In the folder [use-case_lpwc](./use-case_lpwc) are the configuration files ([content-based](./use-case_lpwc/config-cb.ini) and [topology-based](./use-case_lpwc/config-tb.ini) setting) for the transformation of the RDF Knowledge Graph [Linked Papers With Code](https://github.com/davidlamprecht/linkedpaperswithcode).
+
+The transformed Graph Machine Learning Dataset LPWC is available at zenodo [https://zenodo.org/records/10299366 ](https://zenodo.org/records/10299366).
 
 ### Requirements
 
