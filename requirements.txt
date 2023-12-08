@@ -1,0 +1,9 @@
+rdflib
+pandas
+numpy
+configparser
+sklearn
+torch
+transformers
+tqdm
+torch-geometric

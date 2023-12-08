@@ -1,0 +1,33 @@
+HeteroData(
+  work={
+    node_id=[95575],
+    x=[95575, 128],
+  },
+  author={
+    node_id=[19970],
+    x=[19970, 128],
+  },
+  publisher={
+    node_id=[786],
+    x=[786, 128],
+  },
+  source={
+    node_id=[10739],
+    x=[10739, 128],
+  },
+  concept={
+    node_id=[38050],
+    x=[38050, 128],
+  },
+  institution={
+    node_id=[5846],
+    x=[5846, 128],
+  },
+  (author, has_work, work)={ edge_index=[2, 112565] },
+  (work, has_source, source)={ edge_index=[2, 247667] },
+  (source, has_publisher, publisher)={ edge_index=[2, 1781] },
+  (work, has_work, work)={ edge_index=[2, 115271] },
+  (work, has_concept, concept)={ edge_index=[2, 1320949] },
+  (author, has_institution, institution)={ edge_index=[2, 19281] },
+  (author, has_coauthor, author)={ edge_index=[2, 38632] }
+)

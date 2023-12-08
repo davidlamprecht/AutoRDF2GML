@@ -1,0 +1,41 @@
+idx
+│
+├── edges
+│   ├── work_work.csv
+│   ├── work_source.csv
+│   ├── work_concept.csv
+│   ├── work_author.csv
+│   ├── source_publisher.csv
+│   ├── author_institution.csv
+│   ├── author_author.csv
+│   ├── features_work_concept.csv
+│   ├── features_work_author.csv
+│   └── features_author_author.csv
+│
+├── nodes-nld
+│   └── work_nld.csv
+│
+├── nodes-literals
+│   ├── work_literals.csv
+│   ├── source_literals.csv
+│   ├── publisher_literals.csv
+│   ├── institution_literals.csv
+│   ├── concept_literals.csv
+│   └── author_literals.csv
+│
+└── nodes-transe
+    ├── work_transe.csv
+    ├── source_transe.csv
+    ├── publisher_transe.csv
+    ├── institution_transe.csv
+    ├── concept_transe.csv
+    └── author_transe.csv
+
+mapping
+│
+├── work_uri2idx.csv
+├── source_uri2idx.csv
+├── publisher_uri2idx.csv
+├── institution_uri2idx.csv
+├── concept_uri2idx.csv
+└── author_uri2idx.csv
