@@ -13,6 +13,9 @@ It bridges the gap between the Graph Machine Learning and Semantic Web communiti
 To use AutoRDF2GML the graph structure has to be defined in the configuration file and the path to the configuration file has to be specified in the AutoRDF2GML Python file. AutoRDF2GML then automatically generates a heterogeneous graph dataset. The output files can be easily loaded into common graph machine learning frameworks. In this [example](./create-pyg-heterodata.py), we show how the output of AutoRDF2GML (based on the RDF Knowledge Graph SemOpenAlex-SemanticWeb) can be loaded into a PyTorch Geometric HeteroData object. The structure of the loaded PyG HeteroData object as a directed graph is shown [here](./pyg-heterodata-soa-sw-directed.txt) and as an undirected graph is shown [here](./pyg-heterodata-soa-sw-undirected.txt).
 
 
+To better understand the functionality of AutoRDF2GML, this [illustration](./example-rdf-entity-transformation.pdf) shows how an RDF entity is transformed into an entity in the heterogeneous graph datasets suitable for graph-based machine learning.
+
+
 ### Setting Content-based Node Features
 
 AutoRDF2GML with content-based node features is implemented in the Python script [autordf2gml-cb.py](./content-based-feature/autordf2gml-cb.py). The related template and documentation of the configuration file is defined in the [config-template.ini](./content-based-feature/config-template.ini) file.
