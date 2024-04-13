@@ -1,25 +1,33 @@
 # AutoRDF2GML
 
-AutoRDF2GML is a novel framework that semi-automatically transforms RDF data into heterogeneous graph datasets suitable for graph-based machine learning such as graph neural network (GNNs).
-It bridges the gap between the Graph Machine Learning and Semantic Web communities. Its modular architecture and automatic feature selection make it easy to use, even for users who are not familiar with semantic technologies like SPARQL. AutoRDF2GML facilitates the use of large amounts of RDF data for graph-based machine learning.
+AutoRDF2GML is an innovative framework designed to convert RDF data into graph representations suitable for graph-based machine learning methods such as Graph Neural Networks (GNNs). It uniquely generates content-based features from RDF datatype properties and topology-based features from RDF object properties, enabling the effective integration of Semantic Web technologies with Graph Machine Learning.
 
 
-<figure>
-    <img width="857" height="217" src="autordf2gml-overview.png"
-         alt="Overview of AutoRDF2GML">
-    <figcaption>Overview of AutoRDF2GML</figcaption>
-</figure>
+![Overview of AutoRDF2GML](autordf2gml-overview.png)
 
-To use AutoRDF2GML the graph structure has to be defined in the configuration file and the path to the configuration file has to be specified in the AutoRDF2GML Python file. AutoRDF2GML then automatically generates a heterogeneous graph dataset. The output files can be easily loaded into common graph machine learning frameworks. In this [example](./create-pyg-heterodata.py), we show how the output of AutoRDF2GML (based on the RDF Knowledge Graph SemOpenAlex-SemanticWeb) can be loaded into a PyTorch Geometric HeteroData object. The structure of the loaded PyG HeteroData object as a directed graph is shown [here](./pyg-heterodata-soa-sw-directed.txt) and as an undirected graph is shown [here](./pyg-heterodata-soa-sw-undirected.txt).
+## Key Features
 
+- **Content-based Node Features:** Automatically extract node features from RDF datatype properties.
+- **Topology-based Edge Features:** Derive edge features from RDF object properties.
+- **User-friendly Interface:** Features a modular design with automatic feature selection for simplicity and ease of use.
+- **Graph ML Integration:** Seamlessly integrates with leading frameworks like PyTorch Geometric and DGL.
 
-To better understand the functionality of AutoRDF2GML, this [illustration](./example-rdf-entity-transformation.pdf) shows how an RDF entity is transformed into an entity in the heterogeneous graph datasets suitable for graph-based machine learning.
+## Quick User Guide
 
+For a step-by-step guide on using the framework, see our [example](./example) directory and specifically our [Example README](https://github.com/davidlamprecht/AutoRDF2GML/blob/main/example/README.md).
+
+## Usage
+
+To start using AutoRDF2GML, you need an RDF file and the corresponding framework configuration file. In the configuration file, define the RDF classes and properties as needed for your project. Once configured, execute the AutoRDF2GML script to generate a heterogeneous graph dataset suitable for your machine learning applications.
+
+The output can then be used for various machine learning tasks, including node classification, link prediction, and graph classification. It can be readily integrated into common graph machine learning frameworks. For example, see how the output from AutoRDF2GML can be loaded into a PyTorch Geometric HeteroData object in this [script](./create-pyg-heterodata.py). The structure of the loaded PyG HeteroData object is available as a directed graph [here](./pyg-heterodata-soa-sw-directed.txt) and as an undirected graph [here](./pyg-heterodata-soa-sw-undirected.txt).
+
+## Feature Configuration
 
 ### Setting Content-based Node Features
 
 AutoRDF2GML with content-based node features is implemented in the Python script [autordf2gml-cb.py](./content-based-feature/autordf2gml-cb.py). The related template and documentation of the configuration file is defined in the [config-template.ini](./content-based-feature/config-template.ini) file.
-The default model for calculating the embeddings based on the natural language descriptions is [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased).
+The default model for calculating the embeddings based on the natural language descriptions is [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased), but also other models can be used.
 
 ### Setting Topology-based Node Features
 
@@ -27,24 +35,10 @@ AutoRDF2GML with topology-based node features is implemented in the Python scrip
 The default model for calculating the topology-based feature is [TransE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.TransE.html). The default parameters are defined and commented in the implementation. 
 The following models are possible with adaptation of the script: [TransE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.TransE.html#torch_geometric.nn.kge.TransE), [DistMult](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.DistMult.html#torch_geometric.nn.kge.DistMult), [ComplEx](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.ComplEx.html#torch_geometric.nn.kge.ComplEx), [RotatE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.RotatE.html#torch_geometric.nn.kge.RotatE).
 
+## Contributing
 
-### Example
+Contributions to AutoRDF2GML are welcome!
 
-The [example](./example) folder contains a [small RDF Knowledge Graph](./example/semopenalex-C1793878-sample.nt) (38.3mb / 259,321 RDF triples) and the corresponding [config file](./example/config-cb.ini) for the transformation. Based on the provided files you can easily try AutoRDF2GML on your local computer. To run AutoRFD2GML and transform the RDF data only the file paths have to be changed accordingly. A more detailed description is available in the [example](./example) folder.
+## License
 
-
-### Use-Case: Transform SemOpenAlex-SemanticWeb
-
-In the folder [use-case_semopenalex-semanticweb](./use-case_semopenalex-semanticweb) are the configuration files ([content-based](./use-case_semopenalex-semanticweb/config-cb.ini) and [topology-based](./use-case_semopenalex-semanticweb/config-tb.ini) setting) for the transformation of the RDF Knowledge Graph [SemOpenAlex-SemanticWeb](https://github.com/davidlamprecht/semopenalex-semanticweb). For the transformation we have additionally defined the [custom edge](./use-case_semopenalex-semanticweb/autordf2gml-cb-with-custom-edge.py) author-author. The folder structure of the generated heterogeneous graph dataset is shown [here](./use-case_semopenalex-semanticweb/autordf2gml-output-soa-sw.txt). 
-
-The transformed Graph Machine Learning Dataset SOA-SW is available at zenodo [https://zenodo.org/records/10299429](https://zenodo.org/records/10299429).
-
-### Use-Case: Transform Linked Papers With Code
-
-In the folder [use-case_lpwc](./use-case_lpwc) are the configuration files ([content-based](./use-case_lpwc/config-cb.ini) and [topology-based](./use-case_lpwc/config-tb.ini) setting) for the transformation of the RDF Knowledge Graph [Linked Papers With Code](https://github.com/davidlamprecht/linkedpaperswithcode).
-
-The transformed Graph Machine Learning Dataset LPWC is available at zenodo [https://zenodo.org/records/10299366 ](https://zenodo.org/records/10299366).
-
-### Requirements
-
-AutoRDF2GML is implementet in Python. The needed requirements are defined in [requirements.txt](./requirements.txt).
+AutoRDF2GML is made available under the [MIT License](https://opensource.org/licenses/MIT).
