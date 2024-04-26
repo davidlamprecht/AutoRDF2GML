@@ -12,11 +12,32 @@ from transformers import AutoTokenizer, AutoModel
 from tqdm import tqdm
 import os
 
+import argparse
 
+start_time = time.time()
+print(f"--- {start_time=} ---")
+
+def _get_parser():
+  parser = argparse.ArgumentParser()
+  parser.add_argument("--config_path", type=str, default='use-case-aifb/config-aifb.ini')
+  # parser.add_argument("--config", type=str, default='config.ini')
+  return parser
+
+def folder_check(mpath):
+  if os.path.isdir(mpath): 
+    print (f'## Path exists: {mpath}')
+  else: 
+    os.makedirs(mpath, exist_ok=True)
+    print (f'## Path {mpath} created!')
+
+args = _get_parser().parse_args()
 
 #Define the path to the config file
 config = configparser.ConfigParser()
-config.read('/example/path/config-cb.ini')
+print(f"## Loading the config file: {args.config_path}")
+config.read(args.config_path)
+# config.read('use-case-aifb/config-cb.ini')
+# config.read('/example/path/config-cb.ini')
 
 ##########################################################################################
 #
@@ -24,26 +45,31 @@ config.read('/example/path/config-cb.ini')
 #
 ##########################################################################################
 
-#Create a new rdflib graph
-graph = rdflib.Graph()
-
-#Parse the input file
+#Parse the config
 file_path = config.get('InputPath', 'input_path')
-graph.parse(file_path, format="nt")
-
-print(f"RDF dump file loaded. The RDF graph contains {len(graph)} triples.")
-
-#get the information from the config file
-
-#get the save paths from the config file
 save_path_numeric_graph = config.get('SavePath', 'save_path_numeric_graph')
 save_path_mapping = config.get('SavePath', 'save_path_mapping')
+nld_class = config.get('NLD', 'nld_class')
+pivoted_df_nld = f"pivoted_df_{nld_class}"
+embedding_model = config.get('EMBEDDING', 'embedding_model')
+
+folder_check(save_path_numeric_graph)
+folder_check(save_path_mapping)
+
+print (f'## Configs: input:{file_path} / {nld_class=} / {embedding_model=} / output:{save_path_mapping=} {save_path_numeric_graph}')
 
 #get the defined names for the classes and edges from the config file
 class_names = config.get('Nodes', 'classes').split(', ')
 edge_names_simple = config.get('SimpleEdges', 'edge_names').split(', ')
 edge_names_n_aray = config.get('N-ArayEdges', 'edge_names').split(', ')
 edge_names_n_hop = config.get('N-HopEdges', 'edge_names').split(', ')
+
+graph = rdflib.Graph()
+print(f"## Loading the RDF dump from: {file_path=}...")
+graph.parse(file_path, format="nt")
+print(f"## RDF dump file loaded. The RDF graph contains {len(graph)} triples.")
+
+print(f"## Transformation started! Querying the graph...")
 
 #create dictionaries for classes
 class_dict = {class_name: [rdflib.URIRef(uri.strip()) for uri in config.get('Nodes', class_name).split(',')] for class_name in class_names}
@@ -188,8 +214,11 @@ for data_df, data_pivoted_df in zip(nodes_data_df.items(), nodes_data_pivoted_df
 #
 ##########################################################################################
 
+print(f"## Automatic feature selection...")
 
 #Find NLD columns
+print (f'## NLD column: {pivoted_df_nld}')
+
 text_columns = []
 for col in nodes_data_pivoted_df["pivoted_df_work"].columns:
     sample_values = nodes_data_pivoted_df["pivoted_df_work"][col].head(1000).dropna()
@@ -225,8 +254,10 @@ def merge_columns(df, text_columns):
 
 #embed nld strings with scibert
 def embed_strings(dataframe, column):
-    tokenizer = AutoTokenizer.from_pretrained('allenai/scibert_scivocab_uncased')
-    model = AutoModel.from_pretrained('allenai/scibert_scivocab_uncased')
+    # tokenizer = AutoTokenizer.from_pretrained('allenai/scibert_scivocab_uncased')
+    # model = AutoModel.from_pretrained('allenai/scibert_scivocab_uncased')
+    tokenizer = AutoTokenizer.from_pretrained(embedding_model)
+    model = AutoModel.from_pretrained(embedding_model)
     
     def random_embedding(output_size=128):
         return np.random.randn(output_size)
@@ -443,6 +474,7 @@ for key, value in nodes_data_pivoted_df.items():
 #
 ##########################################################################################
 
+print(f"## Edge list construction...")
 
 #Binary edges (refed to as simple edges)
 simple_edge_lists = {}
@@ -590,7 +622,9 @@ for nhop_edge, nhop_list in zip(n_hop_edge_dict.values(), n_hop_edge_lists.value
 #
 ##########################################################################################
 
-
+print(f"## Saving the result...")
+folder_check(save_path_numeric_graph)
+folder_check(save_path_mapping)
 
 #map the uris to idx
 mapping_df = {}
@@ -734,6 +768,10 @@ for key, value in n_aray_edge_feature_lists.items():
 
 
 
-print("Finnished creating heterogenous graph dataset.")
+print(f"## Result saved at: {save_path_mapping=} {save_path_numeric_graph}")
+
+print(f"## Finished creating the graph dataset!")
 
 ######## Automatic graph creation done ########
+
+print("--- %.2f seconds ---" % (time.time() - start_time))
