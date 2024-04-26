@@ -14,22 +14,18 @@ This example uses the [semopenalex-C1793878-sample.nt](./semopenalex-C1793878-sa
     **[config-cb.ini](./config-cb.ini) Contents**:
     ```ini
     [InputPath]
-    input_path = /example/path/semopenalex-C1793878-sample.nt
-
-    [SavePath]
-    save_path_numeric_graph = /example/path/numeric-graph
-    save_path_mapping = /example/path/mapping
-    ```
-
-2. **Update Script Configuration**: In the [autordf2gml-cb.py](./autordf2gml-cb.py) script, update the configuration file path to match your `config-cb.ini` path:
-
-    ```python
-    config.read('/example/path/config-cb.ini') # Line 19
+   input_path = semopenalex-C1793878-sample.nt
+   
+   [SavePath]
+   save_path_numeric_graph = semopenalex/numeric-graph/
+   save_path_mapping = semopenalex/mapping/
     ```
 
 ### Running the Transformation
 
-Execute the [autordf2gml-cb.py](./autordf2gml-cb.py) script to start the process.
+Execute the [autordf2gml-cb.py](./autordf2gml-cb.py) script to start the process, as below:
+
+```python autordf2gml-cb.py --config_path config-cb.ini```
 
 ## Conclusion
 
