@@ -1,13 +1,10 @@
 ## AutoRDF2GML Example (Content-based features, Binary relations)
 
-### Getting Started
-
 An example to transform the AIFB RDF dataset by using only the **simple-edges (binary relations)** with **content-based features**.
 
+### Step-by-step
 
-### Configuration file
-
-1. **Configure Paths**: Complete the configuration file [config-aifb-cb.ini](./config-aifb-cb.ini), as in the following example:
+1. **Configure paths**: Complete the configuration file [config-aifb-cb.ini](./config-aifb-cb.ini), as in the following example:
 
     ```ini
     [InputPath] ;input path
@@ -35,10 +32,8 @@ An example to transform the AIFB RDF dataset by using only the **simple-edges (b
     ...
     ```
 
-### Running the Transformation
+2. **Running the transformation**: Run the [autordf2gml-cb-simpleedges.py](./autordf2gml-cb-simpleedges.py), as below:
 
-Run the [autordf2gml-cb-simpleedges.py](./autordf2gml-cb-simpleedges.py), as below:
+   ``` python autordf2gml-cb-simpleedges.py --config_path path/to/config ```
 
-How to run: ``` python autordf2gml-cb-simpleedges.py --config_path path/to/configfile ``` 
-
-Example: ``` python autordf2gml-cb-simpleedges.py --config_path config-aifb-cb.ini ``` 
+   **Example**: ``` python autordf2gml-cb-simpleedges.py --config_path config-aifb-cb.ini ``` 
