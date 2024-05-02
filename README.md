@@ -14,7 +14,7 @@ AutoRDF2GML is an innovative framework designed to convert RDF data into graph r
 
 ## Quick User Guide
 
-For a step-by-step guide on using the framework, see our [example](./example) directory.
+For a step-by-step guide on using the framework, see our [example](./example) and [example-topologyfeatures](./example/example-topologyfeatures) directories.
 
 ## Usage
 
