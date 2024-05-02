@@ -36,7 +36,7 @@ This example transforms the subsets of SemOpenAlex and AIFB RDF datasets:
 
 Execute the [autordf2gml-tb.py](./autordf2gml-tb.py) script to start the process, as below:
 
-```python autordf2gml-cb.py --config_path config-cb.ini```, e.g.,
+```python autordf2gml-cb.py --config_path path/to/config```, e.g.,
 
 ```python autordf2gml-cb.py --config_path config-aifb-tb.ini``` to run the transformation for AIFB dataset, and
 
