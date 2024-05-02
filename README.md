@@ -26,14 +26,14 @@ The output can then be used for various machine learning tasks, including node c
 
 ### Content-based Node Features
 
-**Quick example** for Content-based Node Features Transformation can be found at the [example](./example) directory.
+**Quick example** for Content-based Node Features Transformation: [example](./example)
 
 AutoRDF2GML with content-based node features is implemented in the Python script [autordf2gml-cb.py](./content-based-feature/autordf2gml-cb.py). The related template and documentation of the configuration file is defined in the [config-template.ini](./content-based-feature/config-template.ini) file.
 The default model for calculating the embeddings based on the natural language descriptions is [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased), but also other huggingface BERT variant models (e.g., bert-base) can be used.
 
 ### Topology-based Node Features
 
-**Quick example** for Topology-based Node Features Transformation can be found at the [example-topologyfeatures](./example/example-topologyfeatures) directory.
+**Quick example** for Topology-based Node Features Transformation: [example-topologyfeatures](./example/example-topologyfeatures) directory.
 
 AutoRDF2GML with topology-based node features is implemented in the Python script [autordf2gml-tb.py](./topology-based-feature/autordf2gml-tb.py). The related template and documentation of the configuration file is defined in the [config-template.ini](./topology-based-feature/config-template.ini) file.
 The following KG embedding models are possible for calculating the topology-based feature: [TransE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.TransE.html#torch_geometric.nn.kge.TransE), [DistMult](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.DistMult.html#torch_geometric.nn.kge.DistMult), [ComplEx](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.ComplEx.html#torch_geometric.nn.kge.ComplEx), [RotatE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.RotatE.html#torch_geometric.nn.kge.RotatE). The default parameters (hidden channel size 128) are defined and commented in the implementation. 
