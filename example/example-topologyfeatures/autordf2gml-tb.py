@@ -9,7 +9,7 @@ from torch_geometric.data import Dataset, download_url, Data
 from torch_geometric.transforms import RandomLinkSplit
 from torch_geometric import seed_everything
 # from torch_geometric.nn import TransE
-from torch_geometric.nn import ComplEx, DistMult, TransE
+from torch_geometric.nn import ComplEx, DistMult, TransE, RotatE
 import torch
 import torch.optim as optim
 import csv
@@ -35,7 +35,7 @@ model_map = {
     'transe': TransE,
     'complex': ComplEx,
     'distmult': DistMult,
-    #'rotate': RotatE,
+    'rotate': RotatE,
 }
 
 args = _get_parser().parse_args()
