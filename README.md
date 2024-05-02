@@ -18,7 +18,7 @@ For a step-by-step guide on using the framework, see our [example](./example) di
 
 ## Usage
 
-To start using AutoRDF2GML, you need an RDF file and the corresponding framework configuration file. In the configuration file, define the RDF classes and properties as needed for your project. Once configured, execute the AutoRDF2GML script to generate a heterogeneous graph dataset suitable for your machine learning applications. For a step-by-step guide, see our [example](./example) and [example-topologyfeatures](./example/example-topologyfeatures) directories.
+To start using AutoRDF2GML, you need an **(1) RDF file** and **(2) config file** describing the configuration for the transformation. In the config file, define the RDF classes and properties as needed for your project. Once configured, execute the AutoRDF2GML script to generate a heterogeneous graph dataset suitable for your machine learning applications. For a step-by-step guide, see our [example](./example) and [example-topologyfeatures](./example/example-topologyfeatures) directories.
 
 The output can then be used for various machine learning tasks, including node classification, link prediction, and graph classification. It can be readily integrated into common graph machine learning frameworks. For example, see how the output from AutoRDF2GML can be loaded into a PyTorch Geometric HeteroData object in this [script](./use-with-pyg/create-pyg-heterodata.py). For instance, the structure of the loaded PyG HeteroData object is available as a **directed** graph [here](./use-with-pyg/pyg-heterodata-soa-sw-directed.txt) and as an **undirected** graph [here](./use-with-pyg/pyg-heterodata-soa-sw-undirected.txt).
 
