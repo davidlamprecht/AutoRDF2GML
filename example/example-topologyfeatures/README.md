@@ -38,8 +38,8 @@ Execute the [autordf2gml-tb.py](./autordf2gml-tb.py) script to start the process
 
 ```python autordf2gml-cb.py --config_path path/to/config```, e.g.,
 
-```python autordf2gml-cb.py --config_path config-aifb-tb.ini``` to run the transformation for AIFB dataset, and
+```python autordf2gml-cb.py --config_path config-aifb-tb.ini``` to run the transformation for AIFB subset dataset, and
 
-```python autordf2gml-cb.py --config_path config-aifb-tb.ini``` to run the transformation for SemOpenAlex dataset.
+```python autordf2gml-cb.py --config_path config-soa-tb.ini``` to run the transformation for SemOpenAlex subset dataset.
 
 The resulted GML dataset containing the numeric graph and mapping files will be saved in the output folder.
