@@ -14,26 +14,29 @@ AutoRDF2GML is an innovative framework designed to convert RDF data into graph r
 
 ## Quick User Guide
 
-For a step-by-step guide on using the framework, see our [example](./example) directory and specifically our [Example README](https://github.com/davidlamprecht/AutoRDF2GML/blob/main/example/README.md).
+For a step-by-step guide on using the framework, see our [example](./example) directory.
 
 ## Usage
 
-To start using AutoRDF2GML, you need an RDF file and the corresponding framework configuration file. In the configuration file, define the RDF classes and properties as needed for your project. Once configured, execute the AutoRDF2GML script to generate a heterogeneous graph dataset suitable for your machine learning applications.
+To start using AutoRDF2GML, you need an RDF file and the corresponding framework configuration file. In the configuration file, define the RDF classes and properties as needed for your project. Once configured, execute the AutoRDF2GML script to generate a heterogeneous graph dataset suitable for your machine learning applications. For a step-by-step guide, see our [example](./example) and [example-topologyfeatures](./example/example-topologyfeatures) directories.
 
-The output can then be used for various machine learning tasks, including node classification, link prediction, and graph classification. It can be readily integrated into common graph machine learning frameworks. For example, see how the output from AutoRDF2GML can be loaded into a PyTorch Geometric HeteroData object in this [script](./create-pyg-heterodata.py). The structure of the loaded PyG HeteroData object is available as a directed graph [here](./pyg-heterodata-soa-sw-directed.txt) and as an undirected graph [here](./pyg-heterodata-soa-sw-undirected.txt).
+The output can then be used for various machine learning tasks, including node classification, link prediction, and graph classification. It can be readily integrated into common graph machine learning frameworks. For example, see how the output from AutoRDF2GML can be loaded into a PyTorch Geometric HeteroData object in this [script](./use-with-pyg/create-pyg-heterodata.py). For instance, the structure of the loaded PyG HeteroData object is available as a **directed** graph [here](./use-with-pyg/pyg-heterodata-soa-sw-directed.txt) and as an **undirected** graph [here](./use-with-pyg/pyg-heterodata-soa-sw-undirected.txt).
 
 ## Feature Configuration
 
-### Setting Content-based Node Features
+### Content-based Node Features
+
+**Quick example** for Content-based Node Features Transformation can be found at the [example](./example) directory.
 
 AutoRDF2GML with content-based node features is implemented in the Python script [autordf2gml-cb.py](./content-based-feature/autordf2gml-cb.py). The related template and documentation of the configuration file is defined in the [config-template.ini](./content-based-feature/config-template.ini) file.
-The default model for calculating the embeddings based on the natural language descriptions is [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased), but also other models can be used.
+The default model for calculating the embeddings based on the natural language descriptions is [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased), but also other huggingface BERT variant models (e.g., bert-base) can be used.
 
-### Setting Topology-based Node Features
+### Topology-based Node Features
+
+**Quick example** for Topology-based Node Features Transformation can be found at the [example-topologyfeatures](./example/example-topologyfeatures) directory.
 
 AutoRDF2GML with topology-based node features is implemented in the Python script [autordf2gml-tb.py](./topology-based-feature/autordf2gml-tb.py). The related template and documentation of the configuration file is defined in the [config-template.ini](./topology-based-feature/config-template.ini) file.
-The default model for calculating the topology-based feature is [TransE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.TransE.html). The default parameters are defined and commented in the implementation. 
-The following models are possible with adaptation of the script: [TransE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.TransE.html#torch_geometric.nn.kge.TransE), [DistMult](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.DistMult.html#torch_geometric.nn.kge.DistMult), [ComplEx](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.ComplEx.html#torch_geometric.nn.kge.ComplEx), [RotatE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.RotatE.html#torch_geometric.nn.kge.RotatE).
+The following KG embedding models are possible for calculating the topology-based feature: [TransE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.TransE.html#torch_geometric.nn.kge.TransE), [DistMult](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.DistMult.html#torch_geometric.nn.kge.DistMult), [ComplEx](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.ComplEx.html#torch_geometric.nn.kge.ComplEx), [RotatE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.RotatE.html#torch_geometric.nn.kge.RotatE). The default parameters (hidden channel size 128) are defined and commented in the implementation. 
 
 ## Contributing
 
