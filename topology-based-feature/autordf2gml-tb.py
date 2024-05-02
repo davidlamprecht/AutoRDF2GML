@@ -42,7 +42,7 @@ args = _get_parser().parse_args()
 
 #Define the path to the config file
 config = configparser.ConfigParser()
-print(f"## AutoRDF2GML (topology-based) ##")
+print(f"## AutoRDF2GML (topology-based): START! ##")
 start_time = time.time()
 print(f"## {start_time=}")
 print(f"## Loading the config file: {args.config_path}")
