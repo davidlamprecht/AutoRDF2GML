@@ -2,7 +2,7 @@
 
 This example transforms the subsets of SemOpenAlex and AIFB RDF datasets:
 
-1. semopenalex-C1793878-sample.nt, with its corresponding [config-soa-tb.ini](./config-soa-tb.ini) file,
+1. [semopenalex-C1793878-sample.nt](../semopenalex-C1793878-sample.nt), with its corresponding [config-soa-tb.ini](./config-soa-tb.ini) file,
 2. [aifb-example-subset5k.nt](aifb-example-subset5k.nt) with its corresponding [config-aifb-tb.ini](./config-aifb-tb.ini) file.
 
 ### Configuration Steps
