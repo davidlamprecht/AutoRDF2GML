@@ -11,11 +11,10 @@ import torch
 from transformers import AutoTokenizer, AutoModel
 from tqdm import tqdm
 import os
-
 import argparse
 
-start_time = time.time()
-print(f"--- {start_time=} ---")
+# start_time = time.time()
+# print(f"--- {start_time=} ---")
 
 def _get_parser():
   parser = argparse.ArgumentParser()
@@ -34,6 +33,9 @@ args = _get_parser().parse_args()
 
 #Define the path to the config file
 config = configparser.ConfigParser()
+print(f"## AutoRDF2GML (content-based): START! ##")
+start_time = time.time()
+print(f"## {start_time=}")
 print(f"## Loading the config file: {args.config_path}")
 config.read(args.config_path)
 # config.read('use-case-aifb/config-cb.ini')
@@ -775,3 +777,4 @@ print(f"## Finished creating the graph dataset!")
 ######## Automatic graph creation done ########
 
 print("--- %.2f seconds ---" % (time.time() - start_time))
+print(f"## AutoRDF2GML (content-based): END!")
