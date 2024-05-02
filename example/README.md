@@ -26,4 +26,4 @@ Execute the [autordf2gml-cb.py](./autordf2gml-cb.py) script to start the process
 
 ## Conclusion
 
-By following these steps, you have successfully transformed an RDF knowledge graph into an heterogenous graph dataset, ready to be used for GNNs.
+By following these steps, you have successfully transformed an RDF knowledge graph into an heterogenous graph dataset, ready to be used for GNNs. The resulted GML dataset containing the numeric graph and mapping files will be saved in the output folder.
