@@ -1,22 +1,36 @@
 # Evaluation of feature combinations of AutoRDF2GML datasets for Recommendation
 
-We evaluate the performance of GNN models when being applied to the transformed graph machine learning datasets **soa-sw** and **lpwc**.
+We evaluate the performance of GNN models when being applied to the transformed graph machine learning datasets **soa-sw** and **lpwc**:
+* [Paper Recommendation](./paper-recommendation) using SOA-SW.
+* [Task Recommendation](./task-recommendation) using LPWC.
 
+The GNN-based recommendation scripts for the homogeneous, bipartite, and heterogeneous graph settings have the following structure (depending on whether GraphSAGE, GAT or HGT is used as GNN architecture):
+* 01_one-hot-encoding-{graphsage/gat/hgt}.py
+* 02_nld-{graphsage/gat/hgt}.py
+* 03_literals-{graphsage/gat/hgt}.py
+* 04_transe-{graphsage/gat/hgt}.py
+* 05_nld-transe-{graphsage/gat/hgt}.py
+* 06_combined-concatenated-{graphsage/gat/hgt}.py
+* 07_combined-addition-{graphsage/gat/hgt}.py
+* 08_combined-addition-weighted-{graphsage/gat/hgt}.py
+* 09_combined-average-{graphsage/gat/hgt}.py
+* 10_combined-nn-{graphsage/gat/hgt}.py
 
-## GNN-based Recommendation Pipeline
+The result files contain the number of trained epochs, the validation and training loss for each epoch, the values of the test metrics and the number of trainable parameters of the GNN models. 
+
 
 
 ## Semantic Feature  Initialization
 AutoRDF2GML generates different kind of node features that can be used in various combinations. In the following, we outline different node feature initializations having different levels of semantic richness. Overall, we consider content-based and topology-based features as well as various combinations thereof:
 1. One-hot-encoding (`one-hot`): As a foundational approach, we employ one-hot encoding for feature initialization.
 2. Content-based: Natural language description (NLD, `cb_nld`): AutoRDF2GML with content-based node features but only 128-dimensional SciBERT embeddings from text attributes (natural language descriptions) are used.
-3. Content-based: Literals (`cb_Literal`): AutoRDF2GML with content-based node feature
-4. Topology-based (`tb`): AutoRDF2GML with topology-based node feature
-5. NLD if available, otherwise topology-based (`comb_nld|tb`)
+3. Content-based: Literals (`cb_Literal`): AutoRDF2GML with content-based node features
+4. Topology-based (`tb`): AutoRDF2GML with topology-based node features
+5. NLD if available, otherwise topology-based (`comb_nld_tb`)
 Combiantions:
 6. Concatenation (`comb_Concat`): Concatenation of the Content-based and Topology-based Node Features
 7. Addition (`comb_Addition`): Addition of the Content-based and Topology-based Node Features
-8. Weighted Addition (`comb_WAddition`): Weighted Addition of the Content-based and Topology-based Node Features
+8. Weighted Addition (`comb_WAddition`): Weighted Addition of the Content-based and Topology-based Node Features (the weights are determined based on the differences in the F1-scores between `cb_Literal` and `tb`)
 9. Average (`comb_Average` ): Average of the Content-based and Topology-based Node Features
 10. Neural Combinator (`comb_nc`): Neural combination via a feedforward neural network of the Content-based and Topology-based Node Features.
 
@@ -35,10 +49,12 @@ Combiantions:
 | Loss Function                   | Binary Cross-Entropy                                 |
 | Loss Calculation                | Comparing ground-truth labels with predictions       |
 
+The GNN-based Recommendation Pipeline consists of the follwing steps: (1) Feature Initialization, (2) H-GNN Encoder and (3) Link Prediction Decoder (dot product-based classifier).
+
 
 ## Evaluation Results for GNN Models on SOA-SW
 
-Evaluation results (F1 score, precision, recall, AUC score) of GNN models (GraphSAGE, GAT and HGT) with above mentioned feature initializations/combiantions and heterogeneity in the graph structure for paper recommendation (prediction of the edge work_author) on SOA-SW (best performances in bold).}
+Evaluation results (F1 score, precision, recall, AUC score) of GNN models (GraphSAGE, GAT and HGT) with above mentioned feature initializations/combiantions and heterogeneity in the graph structure for paper recommendation (prediction of the edge work_author) on SOA-SW (best performances in bold). Specific Parameters: Batch size of 2,048, number of random sampled neighbors of 100 for 1-hop neighbors and 50 for 2-hop neighbors for each node.
 
 
 ### Full Heterogenous Graph
@@ -49,7 +65,7 @@ Evaluation results (F1 score, precision, recall, AUC score) of GNN models (Graph
 | `cb_nld`                    | 0.874        | 0.932         | 0.823        | 0.967         | 0.877  | 0.924   | 0.834  | 0.961   | 0.886  | 0.901   | 0.872  | 0.957   |
 | `cb_Literal`                | 0.914        | 0.927         | 0.901        | 0.972         | 0.889  | 0.919   | 0.861  | 0.964   | 0.887  | 0.882   | 0.892  | 0.945   |
 | `tb`                        | 0.926        | 0.956         | 0.899        | 0.983         | 0.910  | 0.942   | 0.880  | 0.975   | 0.915  | 0.935   | 0.896  | 0.976   |
-| `comb_nld|tb`               | 0.933        | 0.959         | 0.908        | 0.985         | 0.920  | 0.929   | 0.910  | 0.973   | 0.906  | 0.943   | 0.872  | 0.976   |
+| `comb_nld_tb`               | 0.933        | 0.959         | 0.908        | 0.985         | 0.920  | 0.929   | 0.910  | 0.973   | 0.906  | 0.943   | 0.872  | 0.976   |
 | `comb_Concat`               | 0.931        | 0.951         | 0.911        | 0.982         | 0.918  | 0.948   | 0.890  | 0.979   | 0.925  | **0.949** | 0.902  | **0.982** |
 | `comb_Addition`             | 0.921        | 0.951         | 0.892        | 0.982         | 0.922  | **0.956** | 0.889  | 0.982   | 0.882  | 0.939   | 0.832  | 0.970   |
 | `comb_WAddition`            | **0.940**    | 0.950         | **0.929**    | 0.984         | **0.923** | 0.954   | 0.894  | **0.983** | 0.885  | 0.934   | 0.841  | 0.968   |
@@ -75,11 +91,11 @@ Evaluation results (F1 score, precision, recall, AUC score) of GNN models (Graph
 ## Evaluation Results for GNN Models on LPWC
 Evaluation results of GNN models (GraphSAGE, GAT and HGT) with above mentioned feature initializations/combiantions and
 heterogeneity in the graph structure for task recommendation (prediction of the edge dataset_task) on LPWC (best perfor-
-mances in bold).
+mances in bold). Specific Parameters: Batch size of 1,024, number of random sampled neighbors of 1,000 for 1-hop neighbors and 500 for 2-hop neighbors for each node.
 
 ## Evaluation Results for GNN Models on LPWC
 
-### Full Heterogeneous Graph
+### Full Heterogeneous Graph (only the dataset and task nodes are used)
 
 | Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
 |-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
@@ -107,4 +123,10 @@ mances in bold).
 | `comb_Average`              | 0.862        | 0.885         | 0.841        | 0.940         | 0.793  | 0.726   | 0.872  | 0.869   | 0.732  | 0.599   | 0.939  | 0.769   |
 | `comb_nc`                   | 0.813        | 0.746         | 0.895        | 0.875         | 0.740  | 0.617   | 0.923  | 0.725   | 0.740  | 0.603   | 0.958  | 0.767   |
 
+
+## Computational Details. 
+All computational tasks were carried out on HPC infrastructure
+using a node equipped with an NVIDIA A100 80GB GPU. All experiments were
+conducted in an isolated virtual environment running Python 3.9.7, torch 2.0,
+torch-geometric 2.4 and CUDA 11.7
 
