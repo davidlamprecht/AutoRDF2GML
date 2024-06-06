@@ -24,15 +24,16 @@ The result files contain the number of trained epochs, the validation and traini
 AutoRDF2GML generates different kind of node features that can be used in various combinations. In the following, we outline different node feature initializations having different levels of semantic richness. Overall, we consider content-based and topology-based features as well as various combinations thereof:
 1. One-hot-encoding (`one-hot`): As a foundational approach, we employ one-hot encoding for feature initialization.
 2. Content-based: Natural language description (NLD, `cb_nld`): AutoRDF2GML with content-based node features but only 128-dimensional SciBERT embeddings from text attributes (natural language descriptions) are used.
-3. Content-based: Literals (`cb_Literal`): AutoRDF2GML with content-based node features
-4. Topology-based (`tb`): AutoRDF2GML with topology-based node features
-5. NLD if available, otherwise topology-based (`comb_nld_tb`)
+3. Content-based: Literals (`cb_Literal`): AutoRDF2GML with content-based node features.
+4. Topology-based (`tb`): AutoRDF2GML with topology-based node features.
+5. NLD (`cb_nld`) if available, otherwise topology-based (`comb_nld_tb`).
+   
 Combiantions:
-6. Concatenation (`comb_Concat`): Concatenation of the Content-based and Topology-based Node Features
-7. Addition (`comb_Addition`): Addition of the Content-based and Topology-based Node Features
-8. Weighted Addition (`comb_WAddition`): Weighted Addition of the Content-based and Topology-based Node Features (the weights are determined based on the differences in the F1-scores between `cb_Literal` and `tb`)
-9. Average (`comb_Average` ): Average of the Content-based and Topology-based Node Features
-10. Neural Combinator (`comb_nc`): Neural combination via a feedforward neural network of the Content-based and Topology-based Node Features.
+7. Concatenation (`comb_Concat`): Concatenation of the Content-based and Topology-based Node Features.
+8. Addition (`comb_Addition`): Addition of the Content-based and Topology-based Node Features.
+9. Weighted Addition (`comb_WAddition`): Weighted Addition of the Content-based and Topology-based Node Features (the weights are determined based on the differences in the F1-scores between `cb_Literal` and `tb`).
+10. Average (`comb_Average` ): Average of the Content-based and Topology-based Node Features.
+11. Neural Combinator (`comb_nc`): Neural combination via a feedforward neural network of the Content-based and Topology-based Node Features.
 
 
 ## Hyperparameter and Training. 
