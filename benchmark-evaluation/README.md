@@ -1,8 +1,8 @@
 # Evaluation of feature combinations of AutoRDF2GML datasets for Recommendation
 
 We evaluate the performance of GNN models when being applied to the transformed graph machine learning datasets [SOA-SW](https://zenodo.org/records/10299429) and [LPWC](https://zenodo.org/records/10299366):
-* [Paper Recommendation](./paper-recommendation) using [SOA-SW](https://zenodo.org/records/10299429).
-* [Task Recommendation](./task-recommendation) using [LPWC](https://zenodo.org/records/10299366).
+* [Paper Recommendation](./soa-sw_paper-recommendation) using [SOA-SW](https://zenodo.org/records/10299429).
+* [Task Recommendation](./lpwx_task-recommendation) using [LPWC](https://zenodo.org/records/10299366).
 
 
 ## Semantic Feature  Initialization of AutoRDF2GML datasets
