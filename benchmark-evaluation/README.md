@@ -100,7 +100,7 @@ The GNN-based recommendation scripts for the heterogeneous and bipartite graphs 
 The result files contain the number of trained epochs, the validation and training loss for each epoch, the values of the test metrics and the number of trainable parameters of the GNN models. 
 
 
-## Hyperparameter and Training. 
+## Hyperparameter and Training
 | Parameter                       | Value                                                |
 |---------------------------------|------------------------------------------------------|
 | Data Split                      | Training: 80%, Validation: 10%, Test: 10%            |
@@ -121,7 +121,7 @@ The result files contain the number of trained epochs, the validation and traini
 The GNN-based Recommendation Pipeline consists of the follwing steps: (1) Feature Initialization, (2) H-GNN Encoder and (3) Link Prediction Decoder (dot product-based classifier).
 
 
-## Computational Details. 
+## Computational Details
 All computational tasks were carried out on HPC infrastructure
 using a node equipped with an NVIDIA A100 80GB GPU. All experiments were
 conducted in an isolated virtual environment running Python 3.9.7, torch 2.0,
