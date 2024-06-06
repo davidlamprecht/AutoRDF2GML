@@ -29,11 +29,16 @@ AutoRDF2GML generates different kind of node features that can be used in variou
 5. NLD (`cb_nld`) if available, otherwise topology-based (`comb_nld_tb`).
    
 Combiantions:
+
 7. Concatenation (`comb_Concat`): Concatenation of the Content-based and Topology-based Node Features.
-8. Addition (`comb_Addition`): Addition of the Content-based and Topology-based Node Features.
-9. Weighted Addition (`comb_WAddition`): Weighted Addition of the Content-based and Topology-based Node Features (the weights are determined based on the differences in the F1-scores between `cb_Literal` and `tb`).
-10. Average (`comb_Average` ): Average of the Content-based and Topology-based Node Features.
-11. Neural Combinator (`comb_nc`): Neural combination via a feedforward neural network of the Content-based and Topology-based Node Features.
+8. 
+9. Addition (`comb_Addition`): Addition of the Content-based and Topology-based Node Features.
+10. 
+11. Weighted Addition (`comb_WAddition`): Weighted Addition of the Content-based and Topology-based Node Features (the weights are determined based on the differences in the F1-scores between `cb_Literal` and `tb`).
+12. 
+13. Average (`comb_Average` ): Average of the Content-based and Topology-based Node Features.
+14. 
+15. Neural Combinator (`comb_nc`): Neural combination via a feedforward neural network of the Content-based and Topology-based Node Features.
 
 
 ## Hyperparameter and Training. 
