@@ -35,27 +35,6 @@ Combiantions of Content-based and Topology-based Node Features of AutoRDF2GML :
 8. Neural Combinator (`comb_nc`): Neural combination via a feedforward neural network of the Content-based and Topology-based Node Features.
 
 
-## Hyperparameter and Training. 
-| Parameter                       | Value                                                |
-|---------------------------------|------------------------------------------------------|
-| Data Split                      | Training: 80%, Validation: 10%, Test: 10%            |
-| Training Mechanism              | Early Stop based on validation loss                  |
-| Maximum Epochs                  | 100                                                  |
-| Number of GNN Layers            | 2                                                    |
-| Hidden Dimension                | 64                                                   |
-| Head Number (for HGT only)      | 8                                                    |
-| Optimizer                       | Adam                                                 |
-| Learning Rate                   | 0.001                                                |
-| Loss Function                   | Binary Cross-Entropy                                 |
-| Loss Calculation                | Comparing ground-truth labels with predictions       |
-| Batch size                      | SOA-SW: 2,048, LPWC: 1,024                           |                    
-| number of random sampled 1-hop neighbor                     | SOA-SW: 100, LPWC: 1,000                           |   
-| number of random sampled 2-hop neighbor                     | SOA-SW: 50, LPWC: 500                           |   
-
-
-The GNN-based Recommendation Pipeline consists of the follwing steps: (1) Feature Initialization, (2) H-GNN Encoder and (3) Link Prediction Decoder (dot product-based classifier).
-
-
 ## Evaluation Results for GNN Models on SOA-SW
 
 Evaluation results (F1 score, precision, recall, AUC score) of GNN models ([GraphSAGE](https://arxiv.org/abs/1706.02216), [GAT](https://arxiv.org/abs/1710.10903) and [HGT](https://arxiv.org/abs/2003.01332)) with above mentioned feature initializations/combiantions and heterogeneity in the graph structure for paper recommendation (prediction of the edge work_author) on SOA-SW.
@@ -118,6 +97,28 @@ heterogeneity in the graph structure for task recommendation (prediction of the 
 | `comb_WAddition`            | 0.882        | 0.836         | **0.933**    | 0.940         | 0.791  | 0.717   | 0.882  | 0.865   | 0.794  | 0.726   | 0.875  | 0.854   |
 | `comb_Average`              | 0.862        | 0.885         | 0.841        | 0.940         | 0.793  | 0.726   | 0.872  | 0.869   | 0.732  | 0.599   | 0.939  | 0.769   |
 | `comb_nc`                   | 0.813        | 0.746         | 0.895        | 0.875         | 0.740  | 0.617   | 0.923  | 0.725   | 0.740  | 0.603   | 0.958  | 0.767   |
+
+
+
+## Hyperparameter and Training. 
+| Parameter                       | Value                                                |
+|---------------------------------|------------------------------------------------------|
+| Data Split                      | Training: 80%, Validation: 10%, Test: 10%            |
+| Training Mechanism              | Early Stop based on validation loss                  |
+| Maximum Epochs                  | 100                                                  |
+| Number of GNN Layers            | 2                                                    |
+| Hidden Dimension                | 64                                                   |
+| Head Number (for HGT only)      | 8                                                    |
+| Optimizer                       | Adam                                                 |
+| Learning Rate                   | 0.001                                                |
+| Loss Function                   | Binary Cross-Entropy                                 |
+| Loss Calculation                | Comparing ground-truth labels with predictions       |
+| Batch size                      | SOA-SW: 2,048, LPWC: 1,024                           |                    
+| number of random sampled 1-hop neighbor                     | SOA-SW: 100, LPWC: 1,000                           |   
+| number of random sampled 2-hop neighbor                     | SOA-SW: 50, LPWC: 500                           |   
+
+
+The GNN-based Recommendation Pipeline consists of the follwing steps: (1) Feature Initialization, (2) H-GNN Encoder and (3) Link Prediction Decoder (dot product-based classifier).
 
 
 ## Computational Details. 
