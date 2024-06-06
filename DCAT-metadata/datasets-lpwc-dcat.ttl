@@ -1,0 +1,46 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datasets.gml.lpwc.org/dcat/> a dcat:Dataset ;
+    dcterms:creator <https://orcid.org/0000-0001-5458-8645>,
+        <https://orcid.org/0000-0002-9098-5389>,
+        <https://orcid.org/0009-0001-1314-0286> ;
+    dcterms:description "LPWC is a heterogenous graph machine learning dataset based on the RDF knowledge graph Linked Papers With Code (version from 2023-06-24). LPWC contains four node types - papers (376,557 nodes), datasets (8,322 nodes), tasks (4,267 nodes) and methods (2,101), and six edge types. Each node has rich semantic node features for node representation (content-based and topology-based node features are available)."^^xsd:string ;
+    dcterms:issued "2023-12-08"^^xsd:date ;
+    dcterms:license "https://creativecommons.org/licenses/by-sa/4.0/"^^xsd:anyURI ;
+    dcterms:title "Graph Machine Learning Dataset LPWC"^^xsd:string ;
+    dcat:distribution <http://datasets.gml.lpwc.org/v1/lpwc-distribution> ;
+    dcat:keyword "Linked Papers With Code"^^xsd:string,
+        "datasets"^^xsd:string,
+        "graph machine learning"^^xsd:string,
+        "institutions"^^xsd:string,
+        "methods"^^xsd:string,
+        "papers"^^xsd:string,
+        "publishers"^^xsd:string,
+        "tasks"^^xsd:string ;
+    dcat:version "1.0.0"^^xsd:string .
+
+<http://datasets.gml.lpwc.org/v1/lpwc-distribution> a dcat:Distribution ;
+    dcterms:format "CSV"^^xsd:string ;
+    dcterms:issued "2023-12-08"^^xsd:date ;
+    dcterms:title "LPWC dump files"^^xsd:string ;
+    dcat:accessURL "https://zenodo.org/records/10299366"^^xsd:anyURI ;
+    dcat:mediaType "text/plain"^^xsd:string .
+
+<https://orcid.org/0000-0001-5458-8645> a foaf:Person ;
+    owl:sameAs <https://semopenalex.org/author/A5031600582> ;
+    foaf:homepage "https://sites.google.com/view/michaelfaerber"^^xsd:anyURI ;
+    foaf:mbox "michael.faerber@tu-dresden.de" ;
+    foaf:name "Michael Färber"^^xsd:string .
+
+<https://orcid.org/0000-0002-9098-5389> a foaf:Person ;
+    owl:sameAs <https://semopenalex.org/author/A5073755954> ;
+    foaf:homepage "https://www.linkedin.com/in/david-lamprecht-25707919b/"^^xsd:anyURI ;
+    foaf:name "David Lamprecht"^^xsd:string .
+
+<https://orcid.org/0009-0001-1314-0286> a foaf:Person ;
+    foaf:name "Yuni Susanti"^^xsd:string .
+

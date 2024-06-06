@@ -1,0 +1,47 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datasets.gml.soa-sw.org/dcat/> a dcat:Dataset ;
+    dcterms:creator <https://orcid.org/0000-0001-5458-8645>,
+        <https://orcid.org/0000-0002-9098-5389>,
+        <https://orcid.org/0009-0001-1314-0286> ;
+    dcterms:description "SOA-SW  is a heterogeneous graph machine learning dataset based on the RDF knowledge graph SemOpenAlex-SemanticWeb. SOA-SW contains six node types - works (95,575 nodes), authors (19,970 nodes), concepts (38,050 nodes), sources (10,739 nodes), institutions (5,846 nodes), and publishers (786 nodes), and seven edge types. Each node has rich semantic node features as node representation (content-based and topology-based node features are available)."^^xsd:string ;
+    dcterms:issued "2023-12-08"^^xsd:date ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/"^^xsd:anyURI ;
+    dcterms:title "SOA-SW"^^xsd:string ;
+    dcat:distribution <http://datasets.gml.soa-sw.org/v1/soa-sw-distribution> ;
+    dcat:keyword "SemOpenAlex"^^xsd:string,
+        "SemOpenAlex-SemanticWeb"^^xsd:string,
+        "authors"^^xsd:string,
+        "concepts"^^xsd:string,
+        "graph machine learning"^^xsd:string,
+        "institutions"^^xsd:string,
+        "publishers"^^xsd:string,
+        "sources"^^xsd:string,
+        "works"^^xsd:string ;
+    dcat:version "1.0.0"^^xsd:string .
+
+<http://datasets.gml.soa-sw.org/v1/soa-sw-distribution> a dcat:Distribution ;
+    dcterms:format "CSV"^^xsd:string ;
+    dcterms:issued "2023-12-08"^^xsd:date ;
+    dcterms:title "SOA-SW dump files"^^xsd:string ;
+    dcat:accessURL "https://zenodo.org/records/10299366"^^xsd:anyURI ;
+    dcat:mediaType "text/plain"^^xsd:string .
+
+<https://orcid.org/0000-0001-5458-8645> a foaf:Person ;
+    owl:sameAs <https://semopenalex.org/author/A5031600582> ;
+    foaf:homepage "https://sites.google.com/view/michaelfaerber"^^xsd:anyURI ;
+    foaf:mbox "michael.faerber@tu-dresden.de" ;
+    foaf:name "Michael Färber"^^xsd:string .
+
+<https://orcid.org/0000-0002-9098-5389> a foaf:Person ;
+    owl:sameAs <https://semopenalex.org/author/A5073755954> ;
+    foaf:homepage "https://www.linkedin.com/in/david-lamprecht-25707919b/"^^xsd:anyURI ;
+    foaf:name "David Lamprecht"^^xsd:string .
+
+<https://orcid.org/0009-0001-1314-0286> a foaf:Person ;
+    foaf:name "Yuni Susanti"^^xsd:string .
+
