@@ -1,0 +1,64 @@
+Device: 'cuda'
+Epoch: 001, Training Loss: 0.6923
+Epoch: 001, Validation Loss: 0.6890
+Epoch: 002, Training Loss: 0.6874
+Epoch: 002, Validation Loss: 0.6826
+Epoch: 003, Training Loss: 0.6800
+Epoch: 003, Validation Loss: 0.6718
+Epoch: 004, Training Loss: 0.6678
+Epoch: 004, Validation Loss: 0.6551
+Epoch: 005, Training Loss: 0.6490
+Epoch: 005, Validation Loss: 0.6286
+Epoch: 006, Training Loss: 0.6209
+Epoch: 006, Validation Loss: 0.5894
+Epoch: 007, Training Loss: 0.5775
+Epoch: 007, Validation Loss: 0.5612
+Epoch: 008, Training Loss: 0.5669
+Epoch: 008, Validation Loss: 0.5451
+Epoch: 009, Training Loss: 0.5468
+Epoch: 009, Validation Loss: 0.5365
+Epoch: 010, Training Loss: 0.5378
+Epoch: 010, Validation Loss: 0.5232
+Epoch: 011, Training Loss: 0.5238
+Epoch: 011, Validation Loss: 0.5081
+Epoch: 012, Training Loss: 0.5004
+Epoch: 012, Validation Loss: 0.4981
+Epoch: 013, Training Loss: 0.5004
+Epoch: 013, Validation Loss: 0.4913
+Epoch: 014, Training Loss: 0.4857
+Epoch: 014, Validation Loss: 0.4760
+Epoch: 015, Training Loss: 0.4619
+Epoch: 015, Validation Loss: 0.4630
+Epoch: 016, Training Loss: 0.4508
+Epoch: 016, Validation Loss: 0.4550
+Epoch: 017, Training Loss: 0.4447
+Epoch: 017, Validation Loss: 0.4498
+Epoch: 018, Training Loss: 0.4368
+Epoch: 018, Validation Loss: 0.4468
+Epoch: 019, Training Loss: 0.4364
+Epoch: 019, Validation Loss: 0.4412
+Epoch: 020, Training Loss: 0.4265
+Epoch: 020, Validation Loss: 0.4330
+Epoch: 021, Training Loss: 0.4180
+Epoch: 021, Validation Loss: 0.4245
+Epoch: 022, Training Loss: 0.4142
+Epoch: 022, Validation Loss: 0.4229
+Epoch: 023, Training Loss: 0.4164
+Epoch: 023, Validation Loss: 0.4211
+Epoch: 024, Training Loss: 0.4183
+Epoch: 024, Validation Loss: 0.4130
+Epoch: 025, Training Loss: 0.4042
+Epoch: 025, Validation Loss: 0.4086
+Epoch: 026, Training Loss: 0.3858
+Epoch: 026, Validation Loss: 0.3997
+Epoch: 027, Training Loss: 0.4022
+Epoch: 027, Validation Loss: 0.4021
+Early stopping after 27 Epochs.
+Evaluation on Test Data:
+Test AUC: 0.8942
+Test AP: 0.8897
+Test Recall: 0.8675
+Test Precision: 0.7775
+Test Accuracy: 0.8096
+Test F1: 0.8200
+The model has 212,168 trainable parameters.
