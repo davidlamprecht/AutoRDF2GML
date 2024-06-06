@@ -1,6 +1,6 @@
 # Evaluation of feature combinations of AutoRDF2GML datasets for Recommendation
 
-
+We evaluate the performance of GNN models when being applied to the transformed graph machine learning datasets *soa-sw* and *lpwc*.
 
 
 
