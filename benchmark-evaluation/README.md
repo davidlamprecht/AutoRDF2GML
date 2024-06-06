@@ -20,7 +20,7 @@ The result files contain the number of trained epochs, the validation and traini
 
 
 
-## Semantic Feature  Initialization
+## Semantic Feature  Initialization of AutoRDF2GML datasets
 AutoRDF2GML can generates content-based and topology-based node features that can be used in various combinations. In the following, we outline different node feature initializations having different levels of semantic richness. Overall, we consider content-based and topology-based features as well as various combinations thereof:
 1. One-hot-encoding (`one-hot`): As a foundational approach, we employ one-hot encoding for feature initialization (no node features from AutoRDF2GML are used)
 2. Content-based: (`cb`): AutoRDF2GML with Content-based Node Features.
@@ -48,14 +48,17 @@ Combiantions of Content-based and Topology-based Node Features of AutoRDF2GML :
 | Learning Rate                   | 0.001                                                |
 | Loss Function                   | Binary Cross-Entropy                                 |
 | Loss Calculation                | Comparing ground-truth labels with predictions       |
+| Batch size                      | SOA-SW: 2,048, LPWC: 1,024                           |                    
+| number of random sampled 1-hop neighbor                     | SOA-SW: 100, LPWC: 1,000                           |   
+| number of random sampled 2-hop neighbor                     | SOA-SW: 50, LPWC: 500                           |   
+
 
 The GNN-based Recommendation Pipeline consists of the follwing steps: (1) Feature Initialization, (2) H-GNN Encoder and (3) Link Prediction Decoder (dot product-based classifier).
 
 
 ## Evaluation Results for GNN Models on SOA-SW
 
-Evaluation results (F1 score, precision, recall, AUC score) of GNN models ([GraphSAGE](https://arxiv.org/abs/1706.02216), [GAT](https://arxiv.org/abs/1710.10903) and [HGT](https://arxiv.org/abs/2003.01332)) with above mentioned feature initializations/combiantions and heterogeneity in the graph structure for paper recommendation (prediction of the edge work_author) on SOA-SW (best performances in bold). Specific Parameters: Batch size of 2,048, number of random sampled neighbors of 100 for 1-hop neighbors and 50 for 2-hop neighbors for each node.
-
+Evaluation results (F1 score, precision, recall, AUC score) of GNN models ([GraphSAGE](https://arxiv.org/abs/1706.02216), [GAT](https://arxiv.org/abs/1710.10903) and [HGT](https://arxiv.org/abs/2003.01332)) with above mentioned feature initializations/combiantions and heterogeneity in the graph structure for paper recommendation (prediction of the edge work_author) on SOA-SW.
 
 ### Full Heterogenous Graph
 
@@ -86,8 +89,7 @@ Evaluation results (F1 score, precision, recall, AUC score) of GNN models ([Grap
 
 ## Evaluation Results for GNN Models on LPWC
 Evaluation results of GNN models ([GraphSAGE](https://arxiv.org/abs/1706.02216), [GAT](https://arxiv.org/abs/1710.10903) and [HGT](https://arxiv.org/abs/2003.01332)) with above mentioned feature initializations/combiantions and
-heterogeneity in the graph structure for task recommendation (prediction of the edge dataset_task) on LPWC (best perfor-
-mances in bold). Specific Parameters: Batch size of 1,024, number of random sampled neighbors of 1,000 for 1-hop neighbors and 500 for 2-hop neighbors for each node.
+heterogeneity in the graph structure for task recommendation (prediction of the edge dataset_task) on LPWC.
 
 ## Evaluation Results for GNN Models on LPWC
 
