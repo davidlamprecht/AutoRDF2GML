@@ -4,21 +4,6 @@ We evaluate the performance of GNN models when being applied to the transformed 
 * [Paper Recommendation](./paper-recommendation) using [SOA-SW](https://zenodo.org/records/10299429).
 * [Task Recommendation](./task-recommendation) using [LPWC](https://zenodo.org/records/10299366).
 
-The GNN-based recommendation scripts for the homogeneous, bipartite, and heterogeneous graph settings have the following structure (depending on whether GraphSAGE, GAT or HGT is used as GNN architecture):
-* 01_one-hot-encoding-{graphsage/gat/hgt}.py
-* 02_nld-{graphsage/gat/hgt}.py
-* 03_literals-{graphsage/gat/hgt}.py
-* 04_transe-{graphsage/gat/hgt}.py
-* 05_nld-transe-{graphsage/gat/hgt}.py
-* 06_combined-concatenated-{graphsage/gat/hgt}.py
-* 07_combined-addition-{graphsage/gat/hgt}.py
-* 08_combined-addition-weighted-{graphsage/gat/hgt}.py
-* 09_combined-average-{graphsage/gat/hgt}.py
-* 10_combined-nn-{graphsage/gat/hgt}.py
-
-The result files contain the number of trained epochs, the validation and training loss for each epoch, the values of the test metrics and the number of trainable parameters of the GNN models. 
-
-
 
 ## Semantic Feature  Initialization of AutoRDF2GML datasets
 AutoRDF2GML can generates content-based and topology-based node features that can be used in various combinations. In the following, we outline different node feature initializations having different levels of semantic richness. Overall, we consider content-based and topology-based features as well as various combinations thereof:
@@ -97,6 +82,22 @@ heterogeneity in the graph structure for task recommendation (prediction of the 
 | `comb_Average`              | 0.862        | 0.885         | 0.841        | 0.940         | 0.793  | 0.726   | 0.872  | 0.869   | 0.732  | 0.599   | 0.939  | 0.769   |
 | `comb_nc`                   | 0.813        | 0.746         | 0.895        | 0.875         | 0.740  | 0.617   | 0.923  | 0.725   | 0.740  | 0.603   | 0.958  | 0.767   |
 
+
+## Evaluation Scripts
+
+The GNN-based recommendation scripts for the homogeneous, bipartite, and heterogeneous graph settings have the following structure (depending on whether GraphSAGE, GAT or HGT is used as GNN architecture):
+* 01_one-hot-encoding-{graphsage/gat/hgt}.py
+* 02_nld-{graphsage/gat/hgt}.py
+* 03_literals-{graphsage/gat/hgt}.py
+* 04_transe-{graphsage/gat/hgt}.py
+* 05_nld-transe-{graphsage/gat/hgt}.py
+* 06_combined-concatenated-{graphsage/gat/hgt}.py
+* 07_combined-addition-{graphsage/gat/hgt}.py
+* 08_combined-addition-weighted-{graphsage/gat/hgt}.py
+* 09_combined-average-{graphsage/gat/hgt}.py
+* 10_combined-nn-{graphsage/gat/hgt}.py
+
+The result files contain the number of trained epochs, the validation and training loss for each epoch, the values of the test metrics and the number of trainable parameters of the GNN models. 
 
 
 ## Hyperparameter and Training. 
