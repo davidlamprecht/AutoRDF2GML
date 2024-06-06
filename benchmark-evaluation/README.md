@@ -7,7 +7,7 @@ We evaluate the performance of GNN models when being applied to the transformed 
 
 ## Semantic Feature  Initialization of AutoRDF2GML datasets
 AutoRDF2GML can generates content-based and topology-based node features that can be used in various combinations. In the following, we outline different node feature initializations having different levels of semantic richness. Overall, we consider content-based and topology-based features as well as various combinations thereof:
-1. One-hot-encoding (`one-hot`): As a foundational approach, we employ one-hot encoding for feature initialization (no node features from AutoRDF2GML are used)
+1. One-hot-encoding (`one-hot`): As a foundational approach, we employ one-hot encoding for feature initialization (no node features from AutoRDF2GML are used, only the edges between the nodes).
 2. Content-based: (`cb`): AutoRDF2GML with Content-based Node Features.
 3. Topology-based (`tb`): AutoRDF2GML with Topology-based Node Features.
 
