@@ -22,12 +22,6 @@ Combiantions:
 
 
 ## Hyperparameter and Training. 
-For the evaulation the edges are split to 80% for training, 10% for validation, and 10% for test. 
-For training, we employ an early stop mechanism, determined by evaluating the validation loss of the validation set, to ensure complete training for all settings. 
-We train a maximum of 100 epochs. All GNNs are implemented with 2 layers. We use 64 as the hidden dimension throughout all GNNs. 
-For HGT, we set the head number as 8. We use Adam optimizer and set the learning rate to 0.001. 
-As we formulate the recommendation task as a binary classification problem the loss function is binary cross-entropy.
-We compute the loss by comparing the ground-truth labels with the obtained predictions.
 | Parameter                       | Value                                                |
 |---------------------------------|------------------------------------------------------|
 | Data Split                      | Training: 80%, Validation: 10%, Test: 10%            |
@@ -41,7 +35,11 @@ We compute the loss by comparing the ground-truth labels with the obtained predi
 | Loss Function                   | Binary Cross-Entropy                                 |
 | Loss Calculation                | Comparing ground-truth labels with predictions       |
 
+
 ## Evaluation Results for GNN Models on SOA-SW
+
+Evaluation results (F1 score, precision, recall, AUC score) of GNN models (GraphSAGE, GAT and HGT) with above mentioned feature initializations/combiantions and heterogeneity in the graph structure for paper recommendation (prediction of the edge work_author) on SOA-SW (best performances in bold).}
+
 
 ### Full Heterogenous Graph
 
@@ -58,7 +56,7 @@ We compute the loss by comparing the ground-truth labels with the obtained predi
 | `comb_Average`              | 0.926        | **0.963**     | 0.893        | **0.987**     | 0.898  | 0.932   | 0.866  | 0.971   | **0.934** | 0.937   | **0.931** | 0.977   |
 | `comb_nc`                   | 0.896        | 0.941         | 0.855        | 0.973         | 0.889  | 0.867   | **0.912** | 0.941   | 0.889  | 0.913   | 0.865  | 0.961   |
 
-### Bipartite Graph
+### Bipartite Graph (only the author and paper nodes are used)
 
 | Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
 |-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
@@ -72,3 +70,41 @@ We compute the loss by comparing the ground-truth labels with the obtained predi
 | `comb_WAddition`            | 0.910        | 0.956         | 0.869        | 0.977         | 0.873  | 0.902   | 0.845  | 0.939   | 0.876  | 0.904   | 0.850  | 0.949   |
 | `comb_Average`              | 0.906        | 0.949         | 0.867        | 0.973         | 0.876  | 0.888   | 0.865  | 0.940   | 0.866  | 0.875   | 0.857  | 0.933   |
 | `comb_nc`                   | 0.849        | 0.906         | 0.800        | 0.939         | 0.846  | 0.890   | 0.807  | 0.924   | 0.818  | 0.918   | 0.738  | 0.915   |
+
+
+## Evaluation Results for GNN Models on LPWC
+Evaluation results of GNN models (GraphSAGE, GAT and HGT) with above mentioned feature initializations/combiantions and
+heterogeneity in the graph structure for task recommendation (prediction of the edge dataset_task) on LPWC (best perfor-
+mances in bold).
+
+## Evaluation Results for GNN Models on LPWC
+
+### Full Heterogeneous Graph
+
+| Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
+|-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
+| `one-hot`                   | 0.739        | 0.791         | 0.694        | 0.834         | 0.748  | 0.766   | 0.732  | 0.794   | 0.778  | 0.801   | 0.756  | 0.859   |
+| `cb_nld`                    | 0.837        | 0.873         | 0.803        | 0.928         | 0.802  | 0.742   | 0.872  | 0.847   | 0.783  | 0.721   | 0.857  | 0.862   |
+| `cb_Literal`                | 0.784        | 0.697         | 0.895        | 0.853         | 0.800  | 0.834   | 0.769  | 0.879   | 0.820  | 0.778   | 0.868  | 0.894   |
+| `tb`                        | 0.903        | 0.913         | 0.893        | 0.965         | 0.868  | **0.916** | 0.826  | 0.936   | 0.877  | 0.837   | 0.922  | 0.936   |
+| `comb_Concat`               | 0.907        | 0.926         | 0.889        | 0.970         | 0.873  | 0.911   | 0.839  | 0.936   | 0.826  | 0.779   | 0.878  | 0.898   |
+| `comb_Addition`             | 0.912        | 0.921         | 0.903        | 0.967         | 0.875  | 0.890   | 0.860  | 0.936   | **0.885** | **0.845** | **0.930** | **0.943** |
+| `comb_WAddition`            | 0.918        | **0.933**     | 0.903        | **0.975**     | 0.872  | 0.896   | 0.849  | 0.938   | 0.875  | 0.841   | 0.912  | 0.936   |
+| `comb_Average`              | **0.923**    | 0.920         | 0.926        | 0.971         | **0.882** | 0.882   | 0.883  | **0.942** | 0.829  | 0.767   | 0.903  | 0.896   |
+| `comb_nc`                   | 0.879        | 0.832         | **0.932**    | 0.943         | 0.825  | 0.766   | **0.894** | 0.886   | 0.783  | 0.811   | 0.757  | 0.875   |
+
+### Bipartite Graph
+
+| Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
+|-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
+| `one-hot`                   | 0.782        | 0.762         | 0.803        | 0.851         | 0.737  | 0.601   | **0.951** | 0.745   | 0.697  | 0.541   | 0.980  | 0.743   |
+| `cb_nld`                    | 0.836        | 0.800         | 0.876        | 0.903         | 0.806  | 0.771   | 0.845  | 0.852   | 0.795  | 0.718   | 0.891  | 0.868   |
+| `cb_Literal`                | 0.756        | 0.739         | 0.773        | 0.823         | 0.815  | 0.779   | 0.855  | 0.859   | 0.798  | 0.739   | 0.868  | 0.869   |
+| `tb`                        | **0.915**    | 0.930         | 0.901        | 0.971         | **0.830** | **0.809** | 0.852  | **0.898** | 0.819  | **0.866** | 0.776  | **0.912** |
+| `comb_Concat`               | 0.904        | **0.936**     | 0.873        | **0.973**     | 0.799  | 0.717   | 0.903  | 0.869   | **0.845** | 0.803   | 0.892  | 0.909   |
+| `comb_Addition`             | 0.889        | 0.902         | 0.876        | 0.955         | 0.803  | 0.750   | 0.864  | 0.878   | 0.721  | 0.574   | **0.971** | 0.772   |
+| `comb_WAddition`            | 0.882        | 0.836         | **0.933**    | 0.940         | 0.791  | 0.717   | 0.882  | 0.865   | 0.794  | 0.726   | 0.875  | 0.854   |
+| `comb_Average`              | 0.862        | 0.885         | 0.841        | 0.940         | 0.793  | 0.726   | 0.872  | 0.869   | 0.732  | 0.599   | 0.939  | 0.769   |
+| `comb_nc`                   | 0.813        | 0.746         | 0.895        | 0.875         | 0.740  | 0.617   | 0.923  | 0.725   | 0.740  | 0.603   | 0.958  | 0.767   |
+
+
