@@ -85,7 +85,7 @@ heterogeneity in the graph structure for task recommendation (prediction of the 
 
 ## Evaluation Scripts
 
-The GNN-based recommendation scripts for the homogeneous, bipartite, and heterogeneous graph settings have the following structure (depending on whether GraphSAGE, GAT or HGT is used as GNN architecture):
+The GNN-based recommendation scripts for the heterogeneous and bipartite graphs have the following structure (depending on whether GraphSAGE, GAT or HGT is used as GNN architecture):
 * 01_one-hot-encoding-{graphsage/gat/hgt}.py
 * 02_nld-{graphsage/gat/hgt}.py
 * 03_literals-{graphsage/gat/hgt}.py
