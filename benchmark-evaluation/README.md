@@ -39,7 +39,7 @@ Combiantions of Content-based and Topology-based Node Features of AutoRDF2GML :
 
 Evaluation results (F1 score, precision, recall, AUC score) of GNN models ([GraphSAGE](https://arxiv.org/abs/1706.02216), [GAT](https://arxiv.org/abs/1710.10903) and [HGT](https://arxiv.org/abs/2003.01332)) with above mentioned feature initializations/combiantions and heterogeneity in the graph structure for paper recommendation (prediction of the edge work_author) on SOA-SW.
 
-### Full Heterogenous Graph
+### Full Heterogenous Graph SOA-SW
 
 | Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
 |-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
@@ -52,7 +52,7 @@ Evaluation results (F1 score, precision, recall, AUC score) of GNN models ([Grap
 | `comb_Average`              | 0.926        | **0.963**     | 0.893        | **0.987**     | 0.898  | 0.932   | 0.866  | 0.971   | **0.934** | 0.937   | **0.931** | 0.977   |
 | `comb_nc`                   | 0.896        | 0.941         | 0.855        | 0.973         | 0.889  | 0.867   | **0.912** | 0.941   | 0.889  | 0.913   | 0.865  | 0.961   |
 
-### Bipartite Graph (only the author and paper nodes are used)
+### Bipartite Graph (only the author and paper nodes of SOA-SW are used)
 
 | Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
 |-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
@@ -70,9 +70,8 @@ Evaluation results (F1 score, precision, recall, AUC score) of GNN models ([Grap
 Evaluation results of GNN models ([GraphSAGE](https://arxiv.org/abs/1706.02216), [GAT](https://arxiv.org/abs/1710.10903) and [HGT](https://arxiv.org/abs/2003.01332)) with above mentioned feature initializations/combiantions and
 heterogeneity in the graph structure for task recommendation (prediction of the edge dataset_task) on LPWC.
 
-## Evaluation Results for GNN Models on LPWC
 
-### Full Heterogeneous Graph (only the dataset and task nodes are used)
+### Full Heterogeneous Graph LPWC
 
 | Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
 |-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
@@ -85,7 +84,7 @@ heterogeneity in the graph structure for task recommendation (prediction of the 
 | `comb_Average`              | **0.923**    | 0.920         | 0.926        | 0.971         | **0.882** | 0.882   | 0.883  | **0.942** | 0.829  | 0.767   | 0.903  | 0.896   |
 | `comb_nc`                   | 0.879        | 0.832         | **0.932**    | 0.943         | 0.825  | 0.766   | **0.894** | 0.886   | 0.783  | 0.811   | 0.757  | 0.875   |
 
-### Bipartite Graph
+### Bipartite Graph (only the dataset and task nodes of LPWC are used)
 
 | Feature Initialization      | GraphSAGE F1 | GraphSAGE Pre | GraphSAGE Re | GraphSAGE AUC | GAT F1 | GAT Pre | GAT Re | GAT AUC | HGT F1 | HGT Pre | HGT Re | HGT AUC |
 |-----------------------------|--------------|---------------|--------------|---------------|--------|---------|--------|---------|--------|---------|--------|---------|
