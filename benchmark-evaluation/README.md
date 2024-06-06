@@ -1,9 +1,45 @@
 # Evaluation of feature combinations of AutoRDF2GML datasets for Recommendation
 
-We evaluate the performance of GNN models when being applied to the transformed graph machine learning datasets *soa-sw* and *lpwc*.
+We evaluate the performance of GNN models when being applied to the transformed graph machine learning datasets **soa-sw** and **lpwc**.
 
 
+## GNN-based Recommendation Pipeline
 
+
+## Semantic Feature  Initialization
+AutoRDF2GML generates different kind of node features that can be used in various combinations. In the following, we outline different node feature initializations having different levels of semantic richness. Overall, we consider content-based and topology-based features as well as various combinations thereof:
+1. One-hot-encoding (`one-hot`): As a foundational approach, we employ one-hot encoding for feature initialization.
+2. Content-based: Natural language description (NLD, `cb_nld`): AutoRDF2GML with content-based node features but only 128-dimensional SciBERT embeddings from text attributes (natural language descriptions) are used.
+3. Content-based: Literals (`cb_Literal`): AutoRDF2GML with content-based node feature
+4. Topology-based (`tb`): AutoRDF2GML with topology-based node feature
+5. NLD if available, otherwise topology-based (`comb_nld|tb`)
+Combiantions:
+6. Concatenation (`comb_Concat`): Concatenation of the Content-based and Topology-based Node Features
+7. Addition (`comb_Addition`): Addition of the Content-based and Topology-based Node Features
+8. Weighted Addition (`comb_WAddition`): Weighted Addition of the Content-based and Topology-based Node Features
+9. Average (`comb_Average` ): Average of the Content-based and Topology-based Node Features
+10. Neural Combinator (`comb_nc`): Neural combination via a feedforward neural network of the Content-based and Topology-based Node Features.
+
+
+## Hyperparameter and Training. 
+For the evaulation the edges are split to 80% for training, 10% for validation, and 10% for test. 
+For training, we employ an early stop mechanism, determined by evaluating the validation loss of the validation set, to ensure complete training for all settings. 
+We train a maximum of 100 epochs. All GNNs are implemented with 2 layers. We use 64 as the hidden dimension throughout all GNNs. 
+For HGT, we set the head number as 8. We use Adam optimizer and set the learning rate to 0.001. 
+As we formulate the recommendation task as a binary classification problem the loss function is binary cross-entropy.
+We compute the loss by comparing the ground-truth labels with the obtained predictions.
+| Parameter                       | Value                                                |
+|---------------------------------|------------------------------------------------------|
+| Data Split                      | Training: 80%, Validation: 10%, Test: 10%            |
+| Training Mechanism              | Early Stop based on validation loss                  |
+| Maximum Epochs                  | 100                                                  |
+| Number of GNN Layers            | 2                                                    |
+| Hidden Dimension                | 64                                                   |
+| Head Number (for HGT only)      | 8                                                    |
+| Optimizer                       | Adam                                                 |
+| Learning Rate                   | 0.001                                                |
+| Loss Function                   | Binary Cross-Entropy                                 |
+| Loss Calculation                | Comparing ground-truth labels with predictions       |
 
 ## Evaluation Results for GNN Models on SOA-SW
 
