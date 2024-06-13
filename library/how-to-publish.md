@@ -16,13 +16,15 @@ Make sure the code is properly "callable", which means you need to describe the 
 
 ### (2) Build the distribution package
 
-Make sure you are inside the [library](../library) folder where [pyproject.toml](./pyproject.toml) and [autordf2gml](./autordf2gml) directory exist. Then run the following script:
+First upgrade the ``build`` library with ``python3 -m pip install --upgrade build``. Make sure you are in the same directory ([library](../library)) where [pyproject.toml](./pyproject.toml) and [autordf2gml](./autordf2gml) are located. Then run the following command:
 
 ``python -m build``
 
-Running the script would result in ``.egg-info`` and ``dist`` directories; ``dist`` is the one containing the package distribution files (.tgz and wheel files).
+Running the command would result in ``.egg-info`` and ``dist`` directories; ``dist`` is the one containing the package distribution files (.tgz and wheel files).
 
 ### (3) Publish the package
+
+First install the ``twine`` library: ``pip install --upgrade twine`` 
 
 ##### (a) To publish it as a trial in test.pypi
 
