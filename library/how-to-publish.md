@@ -20,18 +20,27 @@ Make sure you are inside the [library](../library) folder where [pyproject.toml]
 
 ``python -m build``
 
-Running the script would result in ``.egg-info`` and ``dist`` () directories; dist is the one containing the package distribution files (.tgz and wheel files).
+Running the script would result in ``.egg-info`` and ``dist`` directories; ``dist`` is the one containing the package distribution files (.tgz and wheel files).
 
 ### (3) Publish the package
 
-To publish it as a trial in test.pypi
+##### (a) To publish it as a trial in test.pypi
 
 ``python -m twine upload --repository testpypi dist/*``
 
-To publish it to the official PyPI repository
+The package is published in https://test.pypi.org/project/package-name. Then we can install it with: 
+
+``pip install -i https://test.pypi.org/pypi/ --extra-index-url https://pypi.org/simple package-name --no-cache-dir``
+
+##### (b) To publish it to the official PyPI repository
 
 ``python -m twine upload dist/*``
 
+The package is published in https://pypi.org/project/autordf2gml. Then we can install it with: 
+
+``pip install package-name``
+
+Congratulations! You published the library!
 
 P.S. Regarding versioning, there are several best practices we can follow. Semantic versioning is a common approach, where we use a version number in the format MAJOR.MINOR.PATCH (e.g., 1.0.0). This allows users to understand the nature of changes at a glance. --> according to GPT hahaha
 
