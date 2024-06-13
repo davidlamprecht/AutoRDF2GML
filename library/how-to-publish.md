@@ -30,7 +30,7 @@ First install the ``twine`` library: ``pip install --upgrade twine``
 
 ``python -m twine upload --repository testpypi dist/*``
 
-The package is published in https://test.pypi.org/project/package-name. Then we can install it with: 
+It will ask for the API Token of test.pypi (created at test.pypi.org). If successfull, the package is published in https://test.pypi.org/project/package-name. We can install the package with: 
 
 ``pip install -i https://test.pypi.org/pypi/ --extra-index-url https://pypi.org/simple package-name --no-cache-dir``
 
@@ -38,7 +38,7 @@ The package is published in https://test.pypi.org/project/package-name. Then we 
 
 ``python -m twine upload dist/*``
 
-The package is published in https://pypi.org/project/autordf2gml. Then we can install it with: 
+It will ask for the API Token of PyPI (created at pypi.org). If successfull, the package is published in https://pypi.org/project/autordf2gml. Then we can install it with: 
 
 ``pip install package-name``
 
