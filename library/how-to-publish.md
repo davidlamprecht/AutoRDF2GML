@@ -6,13 +6,13 @@ This is a step-by-step summary, for comprehensive guide check: https://packaging
 ### (1) Prepare the code (in [autordf2gml](./autordf2gml) directory) and setup file ([pyproject.toml](./pyproject.toml))
 Make sure the code is properly "callable", which means you need to describe the modules in the ``__init__.py`` file. This file should import the necessary components of the library so they are accessible when the library is used. The metadata for the package is written inside the [pyproject.toml](./pyproject.toml) file. Some key elements to include in this file are: 
 
-``name``: This is the name of the library, which will be used with ``pip install name``,
+- ``name``: This is the name of the library, which will be used with ``pip install name``,
 
-``version``: This is important for managing updates to the library. When we upload a new version, we should increment this number. **IMPORTANT: Before making a new release, update the ``version`` field in [pyproject.toml](./pyproject.toml).**
+- ``version``: This is important for managing updates to the library. When we upload a new version, we should increment this number. **IMPORTANT: Before making a new release, update the ``version`` field in [pyproject.toml](./pyproject.toml).**
 
-``dependencies``: The dependencies needed to run the library, with their (compatible) versions.
+- ``dependencies``: The dependencies needed to run the library, with their (compatible) versions.
 
-``requires-python``: The python version, currently I put the cap at Python 3.8.0 to 3.9.9.
+- ``requires-python``: The python version, currently I put the cap at Python 3.8.0 to 3.9.9.
 
 ### (2) Build the distribution package
 
