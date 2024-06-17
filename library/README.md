@@ -20,7 +20,7 @@ To start using AutoRDF2GML, you need: **(1) RDF file** and **(2) Configuration f
 
 ## Quick Example
 
-This example uses the [semopenalex-C1793878-sample.nt](https://github.com/davidlamprecht/AutoRDF2GML/blob/main/example/semopenalex-C1793878-sample.nt) RDF file, a curated subset from [SemOpenAlex](https://semopenalex.org).
+This example uses the [semopenalex-C1793878-sample.nt](https://github.com/davidlamprecht/AutoRDF2GML/blob/main/example/semopenalex-C1793878-sample.nt) RDF file, a curated subset from [SemOpenAlex](https://semopenalex.org). 
 
 #### 1. Preparing the configuration file
 
@@ -67,6 +67,8 @@ autordf2gml.topology_feature("config-soa-tb.ini")
 #to run content-based transformation only using simple-edges
 autordf2gml.simpleedges_feature("config-aifb-cb-simple.ini")
 ```
+
+The required config files and RDF file for testing the library can be found in the [test](./test) directory. Simply run `python test.py` after installation to test the library.
 
 ## Our Github
 
