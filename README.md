@@ -1,12 +1,13 @@
 # AutoRDF2GML
 
-AutoRDF2GML is an innovative framework designed to convert RDF data into graph representations suitable for graph-based machine learning methods such as Graph Neural Networks (GNNs). It uniquely generates content-based features from RDF datatype properties and topology-based features from RDF object properties, enabling the effective integration of Semantic Web technologies with Graph Machine Learning.
-
+AutoRDF2GML is a framework to convert RDF data into graph representations suitable for graph-based machine learning methods such as Graph Neural Networks (GNNs). It generates content-based features from RDF datatype properties and topology-based features from RDF object properties, enabling the effective integration of Semantic Web technologies with Graph Machine Learning.
 
 ![Overview of AutoRDF2GML](autordf2gml-overview.png)
 
-## UPDATE !!!
-- AutoRDF2GML is now available via pip and can be installed with: ``pip install autordf2gml``. For detailed usage instructions, check [https://pypi.org/project/autordf2gml/](https://pypi.org/project/autordf2gml/).
+## ${\textsf{\color{red}!!! UPDATE !!!}}$
+- AutoRDF2GML is now available via pip and can be installed with: **``pip install autordf2gml``**
+
+  For detailed usage instructions, check [https://pypi.org/project/autordf2gml/](https://pypi.org/project/autordf2gml/).
  
 ## Key Features
 
