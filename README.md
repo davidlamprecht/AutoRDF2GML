@@ -5,7 +5,7 @@ AutoRDF2GML is a framework to convert RDF data into graph representations suitab
 ![Overview of AutoRDF2GML](autordf2gml-overview.png)
 
 ## ${\textsf{\color{red}!!! UPDATE !!!}}$
-- AutoRDF2GML is now available via pip and can be installed with: **``pip install autordf2gml``**
+- AutoRDF2GML is now available via pip and can be installed with: ``pip install autordf2gml``
 
   For detailed usage instructions, check [https://pypi.org/project/autordf2gml/](https://pypi.org/project/autordf2gml/).
  
