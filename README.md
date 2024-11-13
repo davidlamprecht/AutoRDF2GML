@@ -1,20 +1,29 @@
-# AutoRDF2GML
+# 🧩 AutoRDF2GML
 
-AutoRDF2GML is a framework to convert RDF data into graph representations suitable for graph-based machine learning methods such as Graph Neural Networks (GNNs). It generates content-based features from RDF datatype properties and topology-based features from RDF object properties, enabling the effective integration of Semantic Web technologies with Graph Machine Learning.
+**AutoRDF2GML** is a framework designed to convert RDF data into graph representations suitable for graph-based machine learning (GML) methods, such as Graph Neural Networks (GNNs). By generating both **content-based features** from RDF datatype properties and **topology-based features** from RDF object properties, AutoRDF2GML enables effective integration of Semantic Web technologies with Graph Machine Learning.
+
+---
+
+### 🌟 Key Features
+
+- **Content-Based Node Features**: Automatically extract node features from RDF datatype properties.
+- **Topology-Based Edge Features**: Derive edge features from RDF object properties.
+- **User-Friendly Interface**: Modular design with automatic feature selection for simplicity and ease of use.
+- **Graph ML Integration**: Seamlessly integrates with leading frameworks like PyTorch Geometric and DGL.
 
 ![Overview of AutoRDF2GML](autordf2gml-overview.png)
 
-## ${\textsf{\color{red}!!! UPDATE !!!}}$
-- AutoRDF2GML is now available via pip and can be installed with: ``pip install autordf2gml``
+---
 
-  For detailed usage instructions, check [https://pypi.org/project/autordf2gml/](https://pypi.org/project/autordf2gml/).
- 
-## Key Features
+### 📥 Installation via pip
 
-- **Content-based Node Features:** Automatically extract node features from RDF datatype properties.
-- **Topology-based Edge Features:** Derive edge features from RDF object properties.
-- **User-friendly Interface:** Features a modular design with automatic feature selection for simplicity and ease of use.
-- **Graph ML Integration:** Seamlessly integrates with leading frameworks like PyTorch Geometric and DGL.
+AutoRDF2GML is now available via pip! To install, simply run:
+```bash
+pip install autordf2gml
+```
+For detailed usage instructions, check [https://pypi.org/project/autordf2gml/](https://pypi.org/project/autordf2gml/).
+
+---
 
 ## Quick User Guide
 
@@ -42,10 +51,14 @@ The default model for calculating the embeddings based on the natural language d
 AutoRDF2GML with topology-based node features is implemented in the Python script [autordf2gml-tb.py](./topology-based-feature/autordf2gml-tb.py). The related template and documentation of the configuration file is defined in the [config-template.ini](./topology-based-feature/config-template.ini) file.
 The following KG embedding models are possible for calculating the topology-based feature: [TransE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.TransE.html#torch_geometric.nn.kge.TransE), [DistMult](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.DistMult.html#torch_geometric.nn.kge.DistMult), [ComplEx](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.ComplEx.html#torch_geometric.nn.kge.ComplEx), [RotatE](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.kge.RotatE.html#torch_geometric.nn.kge.RotatE). The default parameters (hidden channel size 128) are defined and commented in the implementation. 
 
-## Contributing
+## 🤝 Contributing
 
-Contributions to AutoRDF2GML are welcome!
+We welcome any kind of contributions!
 
-## License
+## 📄 License
 
-AutoRDF2GML is made available under the [MIT License](https://opensource.org/licenses/MIT).
+**AutoRDF2GML** is available under the [MIT License](https://opensource.org/licenses/MIT), making it open and accessible for both personal and commercial use.
+
+## 📞 Contact & Reference
+
+Michael Färber, David Lamprecht, Yuni Susanti: ["AutoRDF2GML: Facilitating RDF Integration in Graph Machine Learning"](https://arxiv.org/pdf/2407.18735), Proceedings of the 23rd International Semantic Web Conference (ISWC'24), Baltimore, USA.
