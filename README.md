@@ -59,6 +59,24 @@ We welcome any kind of contributions!
 
 **AutoRDF2GML** is available under the [MIT License](https://opensource.org/licenses/MIT), making it open and accessible for both personal and commercial use.
 
+## GML Datasets
+
+- **GML Dataset LPWC**  
+  DOI: [10.5281/zenodo.10299366](https://doi.org/10.5281/zenodo.10299366)  
+  License: CC BY-SA 4.0
+
+- **GML Dataset SOA-SW**  
+  DOI: [10.5281/zenodo.10299429](https://doi.org/10.5281/zenodo.10299429)  
+  License: Creative Commons Zero (CC0)
+
+- **GML Dataset AIFB**  
+  DOI: [10.5281/zenodo.10989595](https://doi.org/10.5281/zenodo.10989595)  
+  License: CC BY 4.0
+
+- **GML Dataset LinkedMDB**  
+  DOI: [10.5281/zenodo.10989683](https://doi.org/10.5281/zenodo.10989683)  
+  License: CC BY 4.0
+
 ## 📞 Contact & Reference
 
 Michael Färber, David Lamprecht, Yuni Susanti: ["AutoRDF2GML: Facilitating RDF Integration in Graph Machine Learning"](https://arxiv.org/pdf/2407.18735), Proceedings of the 23rd International Semantic Web Conference (ISWC'24), Baltimore, USA.
