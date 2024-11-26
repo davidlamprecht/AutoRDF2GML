@@ -222,9 +222,10 @@ print(f"## Automatic feature selection...")
 print (f'## NLD column: {pivoted_df_nld}')
 
 text_columns = []
-for col in nodes_data_pivoted_df["pivoted_df_work"].columns:
-    sample_values = nodes_data_pivoted_df["pivoted_df_work"][col].head(1000).dropna()
-
+# for col in nodes_data_pivoted_df["pivoted_df_work"].columns:
+#     sample_values = nodes_data_pivoted_df["pivoted_df_work"][col].head(1000).dropna()
+for col in nodes_data_pivoted_df[pivoted_df_nld].columns:
+    sample_values = nodes_data_pivoted_df[pivoted_df_nld][col].head(1000).dropna()
     unique_strings = sample_values.nunique()
     
     avg_spaces = sample_values.apply(lambda x: str(x).count(' ')).mean()
